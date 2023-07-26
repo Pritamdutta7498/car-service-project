@@ -35,7 +35,7 @@ const googleSignIn = () => {
 useEffect(() =>{
   const unsubscribe = onAuthStateChanged(auth, currentUser =>{
     setUser(currentUser);
-    console.log('Current user is ', currentUser);
+    // console.log('Current user is ', currentUser);
     setLoading(false);
   });
   return () =>{

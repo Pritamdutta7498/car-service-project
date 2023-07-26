@@ -26,12 +26,17 @@ const NavBar = () => {
       </li>
       {user?.email ? (
         <>
-          <button
-            onClick={handleLogOut}
-            className="btn btn-secondary rounded-full"
-          >
-            Logout
-          </button>
+          <li>
+        <Link to="/bookings">My bookings</Link>
+      </li>
+          <li>
+            <button
+              onClick={handleLogOut}
+              className="btn btn-secondary rounded-full"
+            >
+              Logout
+            </button>
+          </li>
         </>
       ) : (
         <li>

@@ -1,6 +1,6 @@
 import Lottie from "lottie-react";
 import login from "../../assets/icons/login.json";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
@@ -18,9 +18,10 @@ const Login = () => {
 
     signIn(email, password)
       .then((result) => {
-        const user = result.user;
-        console.log(user);
-        if (user) {
+        const loggedUser = result.user;
+        
+        console.log(loggedUser);
+        if (loggedUser) {
           Swal.fire({
             title: "Success!",
             text: "User Login Successfully!",
@@ -28,6 +29,7 @@ const Login = () => {
             confirmButtonText: "Ok",
           });
         }
+       
       })
       .catch((error) => {
         if (error) {

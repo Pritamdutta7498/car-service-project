@@ -32,7 +32,7 @@ const NavBar = () => {
           <li>
             <button
               onClick={handleLogOut}
-              className="btn btn-secondary rounded-full"
+              className="font-bold"
             >
               Logout
             </button>

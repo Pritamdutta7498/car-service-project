@@ -35,19 +35,44 @@ const Bookings = () => {
           .then((data) => {
             // console.log(data);
             if (data.deletedCount > 0) {
-              Swal.fire("Deleted!", "booking service has been deleted.", "success");
-              const remaining = bookings.filter(booking => booking._id !== id)
-              setBookings(remaining)
+              Swal.fire(
+                "Deleted!",
+                "booking service has been deleted.",
+                "success"
+              );
+              const remaining = bookings.filter(
+                (booking) => booking._id !== id
+              );
+              setBookings(remaining);
             }
           });
-        
       }
     });
   };
+
+  const handleBookingConfirm = (id) => {
+    fetch(`http://localhost:5000/bookings/${id}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+      },
+      body:JSON.stringify({status: 'confirm'})
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount > 0) {
+          const remaining = bookings.filter(booking => booking._id !== id);
+          const updated = bookings.find(booking => booking._id === id);
+          updated.status = 'confirm';
+          const newBookings = [updated, ...remaining];
+          setBookings(newBookings);
+        }
+      });
+  };
   return (
     <div>
-      <h3>here you can see booking table! {bookings.length}</h3>
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto my-10">
         <table className="table">
           {/* head */}
           <thead>
@@ -61,14 +86,15 @@ const Bookings = () => {
             </tr>
           </thead>
           <tbody>
-            {
-                bookings.map(booking => <BookingsData key={booking._id} booking={booking} handleDelete={handleDelete} ></BookingsData>)
-            }
-            
-            
-           
+            {bookings.map((booking) => (
+              <BookingsData
+                key={booking._id}
+                booking={booking}
+                handleDelete={handleDelete}
+                handleBookingConfirm={handleBookingConfirm}
+              ></BookingsData>
+            ))}
           </tbody>
-          
         </table>
       </div>
     </div>

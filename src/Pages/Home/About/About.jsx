@@ -30,7 +30,7 @@ const About = () => {
             excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
             a id nisi.
           </p>
-          <button className="btn btn-error">Get More info</button>
+          <button className="btn btn-error" title="button is not working!">Get More info</button>
         </div>
       </div>
     </div>

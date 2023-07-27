@@ -20,7 +20,7 @@ const ServiceCard = ({service}) => {
           <button className="btn btn-primary">Book Now</button>
 
           </Link>          
-          <button className="font-bold text-4xl text-orange-500"><HiOutlineArrowRightCircle /></button>
+          <button className="font-bold text-4xl text-orange-500" title="button is not working!"><HiOutlineArrowRightCircle /></button>
 
         </div>
       </div>

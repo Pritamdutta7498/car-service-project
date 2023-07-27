@@ -9,7 +9,7 @@ const NavBar = () => {
   const handleLogOut = () => {
     logOut()
       .then(() => {})
-      .catch((error) => console.log(error));
+      .catch((error) => console.error(error));
   };
 
   const navItems = (
@@ -80,7 +80,7 @@ const NavBar = () => {
         <ul className="menu menu-horizontal px-1">{navItems}</ul>
       </div>
       <div className="navbar-end">
-        <button className="btn btn-outline btn-error">Appointment</button>
+        <button className="btn btn-outline btn-error" title="button is not working!">Appointment</button>
       </div>
     </div>
   );

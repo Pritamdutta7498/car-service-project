@@ -45,8 +45,8 @@ const BookingsData = ({ booking, handleDelete,handleBookingConfirm }) => {
       <td>{email}</td>
       <td>{price}</td>
       <th>
-        { status == 'confirm' ? <button className="btn btn-sm btn-success shadow-md">Confirmed</button> :
-          <button onClick={()=>handleBookingConfirm(_id)} className="btn btn-error btn-sm shadow-md">Please confirm</button>}
+        { status == 'confirm' ? <button className="btn btn-sm btn-success shadow-md" >Confirmed</button> :
+          <button onClick={()=>handleBookingConfirm(_id)} className="btn btn-error btn-sm shadow-md" title="Please confirm your service order!">Please confirm</button>}
       </th>
     </tr>
   );

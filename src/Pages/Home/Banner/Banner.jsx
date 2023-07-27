@@ -19,8 +19,8 @@ const Banner = () => {
               dolorem tenetur quisquam in.
             </p>
             <div className="gap-5 flex">
-              <button className="btn btn-warning">Discover More</button>
-              <button className="btn btn-outline btn-error">Latest Project</button>
+              <button className="btn btn-warning" title="button is not working!">Discover More</button>
+              <button className="btn btn-outline btn-error" title="button is not working!">Latest Project</button>
             </div>
           </div>
         </div>
